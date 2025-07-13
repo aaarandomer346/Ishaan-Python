@@ -12,6 +12,15 @@ server.bind(ADDR)
 
 server.listen(2)
 
+
+
+# TODO:
+# make sure the map updates for the player all the time, not just when the player moves
+# make a bigger map, pref infinite with boundaries of 100x100 for now
+# more players?
+# actual ui instead of text window
+
+
 def handle_players(client, addr):
     while True:
 
