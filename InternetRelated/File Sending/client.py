@@ -12,35 +12,23 @@ client.connect(ADDR)
 playing = True
 delta_time = 0.1
 clock = pygame.time.Clock()
-playerData = [8, 8, '', 'o']
-print("Connected to server.")
-playerData[3] = input("what character should your player be? ")
+pos = [0, 0]
 try:
     while playing == True:
         direction = input("Where do you want to move? ")
         if direction == 'w':
-            playerData[1] -= 1
-            playerData[2] = direction
+            pos[1] += 1
         elif direction == 'a':
-            playerData[0] -= 1
-            playerData[2] = direction
+            pos[0] -= 1
         elif direction == 's':
-            playerData[1] += 1
-            playerData[2] = direction
+            pos[1] -= 1
         elif direction == 'd':
-            playerData[0] += 1
-            playerData[2] = direction
+            pos[0] += 1
         elif direction == 'quit':
             playing = False
-        print(playerData)
-        serialized = pickle.dumps(playerData)
+        print(pos)
+        serialized = pickle.dumps(pos)
         client.sendall(serialized)
-
-        gameMap = pickle.loads(client.recv(8192))
-        for row in gameMap:
-            for item in row:
-                print(item, end=" ")
-            print("")
 
         delta_time = clock.tick(60)
         delta_time = max(0.001, min(0.1, delta_time))
