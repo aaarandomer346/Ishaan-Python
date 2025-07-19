@@ -62,6 +62,8 @@ while running:
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_d:
                 moving = False
+        if event.type == pygame.mixer.music.get_endevent():
+            print("Music has ended")
 
     pygame.display.flip() # updates the display
 
