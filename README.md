@@ -1,0 +1,3 @@
+just some stuff im doing on python, all projects start here then get moved to a seperate repository.
+why do i chose to do this?
+idk, prob cause im jus lazy and dont wanna make a new project everytime, tho it might be easier...
