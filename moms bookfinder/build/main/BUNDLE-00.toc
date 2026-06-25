@@ -1,3 +1,0 @@
-([('main',
-   '/Users/ishaanbraganza/Documents/Coding/Python/moms bookfinder/dist/main',
-   'EXECUTABLE')],)
