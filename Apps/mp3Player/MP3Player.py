@@ -31,7 +31,7 @@ screen = pygame.display.set_mode((500, 350))
 songs = [
     {
         'Name': 'Gorillaz - Feel Good Inc.',
-        'Path': r'Apps\mp3Player\Gorillaz - Feel Good Inc. (Official Video).mp3'
+        'Path': r'Ishaan-Python/Apps/mp3Player/Gorillaz - Feel Good Inc. (Official Video).mp3'
     }
 ]
 
@@ -65,13 +65,13 @@ def track_song_progress():
         else:
             time.sleep(0.05)
 
-play_button = setImgs(225, 300, 50, 50, True, (255, 255, 255), r'Apps\mp3Player\play button.png')
+play_button = setImgs(225, 300, 50, 50, True, (255, 255, 255), r'Ishaan-Python/Apps/mp3Player/play_button.png')
 play_button_img = play_button.make_img()
 
-pause_button = setImgs(225, 300, 50, 50, True, (255, 255, 255), r'Apps\mp3Player\pause button.png')
+pause_button = setImgs(225, 300, 50, 50, True, (255, 255, 255), r'Ishaan-Python/Apps/mp3Player/pause_button.png')
 pause_button_img = pause_button.make_img()
 
-rewind_button = setImgs(175, 300, 50, 50, True, (255, 255, 255), r'Apps\mp3Player\rewind button.png')
+rewind_button = setImgs(175, 300, 50, 50, True, (255, 255, 255), r'Ishaan-Python/Apps/mp3Player/rewind_button.png')
 rewind_button_img = rewind_button.make_img()
 
 play_pause_button_status = 'Play'

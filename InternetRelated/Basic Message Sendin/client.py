@@ -2,10 +2,10 @@ import socket
 from threading import Event, Thread
 
 HEADER = 64
-PORT = 7500
+PORT = 5050
 FORMAT = "utf-8"
 DISCONNECT_MESSAGE = "!DISCONNECT"
-SERVER = "192.168.29.94" # specifies the server we want to connect to
+SERVER = "192.168.29.73" # specifies the server we want to connect to
 ADDR = (SERVER, PORT)
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -27,7 +27,7 @@ def checkForMessages():
         try:
             message = client.recv(2048).decode(FORMAT)
             if message:
-                print(message)
+                print("\n", message)
         except:
             break
 
@@ -43,8 +43,16 @@ Thread(target=continueChecking, daemon=True).start()
 msg = "DESTINATION: " + input("Who are you sending to? ")
 send(msg)
 
-
-msg = "MESSAGE: " + input("What do you want to send? ")
+msg = "MESSAGE: " + input("MESSAGE: ")
 send(msg)
+
+quit = False
+while quit != True:
+    msg = "MESSAGE: " + input("MESSAGE: ")
+    if msg == "MESSAGE: !QUIT":
+        quit = True
+    send(msg)
+
+
 send(DISCONNECT_MESSAGE)
 condition.set()

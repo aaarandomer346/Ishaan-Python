@@ -7,14 +7,13 @@ import threading
 # a client isnt waiting for another client to communicate
 
 # to send objects, google it. smth using pickels and jsons
-
 HEADER = 64 # every single time, the first message needs to be this big in bytes
 # before any message is sent, send a message with how many bytes the message will be
     # increase byte size if needed
 # and then send the message
 # increase if needed
-PORT = 7500 # sets a port to communicate on
-SERVER = socket.gethostbyname(socket.gethostname()) # gets the ip address of this computer
+PORT = 5050 # sets a port to communicate on
+SERVER = "0.0.0.0" # gets the ip address of this computer
 # change to the result of "my public ip address" to allow devices anywhere to connect
 # we use the above since then it allows the servers to run on other devices
 # if we dont use this, then we need to hard code the ip address of the device the server is running on
@@ -35,6 +34,7 @@ server.bind(ADDR) # binds the address
 # if the destination is valid, send it
 # if not, respond back to client
 
+print(SERVER)
 
 ################################################################################
 ################################################################################
@@ -97,7 +97,12 @@ def handle_client(conn, addr):
             elif "MESSAGE:" in msg and validDestination == True:
                 for whoRecvs in connectedIdentities:
                     if whoRecvs[0] == destination:
-                        whoRecvs[2].send(f"[{identity[0]}] {msg}".encode(FORMAT))
+                        try:
+                            whoRecvs[2].send(f"[{identity[0]}] {msg}".encode(FORMAT))
+                            print(whoRecvs)
+                        except Exception as e:
+                            conn.send("RECIVER IS NO LONGER CONNECTED".encode(FORMAT))
+                            print(e)
             print(f"[{addr}] {msg}")
 
 

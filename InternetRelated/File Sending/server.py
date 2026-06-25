@@ -2,7 +2,7 @@ import socket
 import pickle
 
 PORT = 7500
-SERVER = "192.168.29.94"
+SERVER = socket.gethostbyname(socket.gethostname())
 ADDR = (SERVER, PORT)
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

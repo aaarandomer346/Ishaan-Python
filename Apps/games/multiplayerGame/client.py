@@ -3,7 +3,7 @@ import pickle
 import pygame
 
 PORT = 7500
-SERVER = "192.168.29.78"
+SERVER = "127.0.0.1"
 ADDR = (SERVER, PORT)
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

@@ -162,9 +162,9 @@ clock = pygame.time.Clock()
 
 screen = pygame.display.set_mode((480, 480))
 
-imgs = [pygame.image.load('Apps\games\infiniGame\grass.png').convert(),
-              pygame.image.load('Apps\games\infiniGame\\tree.png').convert(),
-              pygame.image.load('Apps\games\infiniGame\player.png').convert()]
+imgs = [pygame.image.load('Ishaan-Python/Apps/games/infiniGame/grass.png').convert(),
+              pygame.image.load('Ishaan-Python/Apps/games/infiniGame/tree.png').convert(),
+              pygame.image.load('Ishaan-Python/Apps/games/infiniGame/player.png').convert()]
 
 for i in range(mapHeight):
     mapcolumn = []
