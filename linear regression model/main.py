@@ -33,8 +33,8 @@ def make_graph(x_data, y_data_for_training, y_predict, slope, intercept, r_squar
     )
 
     plt.text(
-        x=2,                  # X-coordinate on the graph where text starts
-        y=18,                 # Y-coordinate on the graph where text starts
+        x=25,                  # X-coordinate on the graph where text starts
+        y=60,                 # Y-coordinate on the graph where text starts
         s=f"$R^2 = {r_squared:.3f}$",  # The text (uses $ for LaTeX superscript)
         fontsize=12,          # Size of the font
         bbox=dict(facecolor='white', alpha=0.5, edgecolor='black')  # Optional box background
@@ -61,15 +61,11 @@ def learn(x_data, slope, intercept, y_data_for_training, step):
 
     grad_slope = grad_slope / len(x_data)
     grad_intercept = grad_intercept / len(x_data)
-    print(f"grad_intercept / len(x_data) {grad_intercept / len(x_data)}")
-    print(f"Grad Intercept: {grad_intercept}")
-
-    print(slope, intercept)
-    print(grad_slope * -1)
-    print(grad_intercept * -1)
 
     slope -= step * grad_slope
     intercept -= step * grad_intercept
+    print(grad_intercept)
+    print(grad_slope)
     y_predict = predict_y(slope, x_data, intercept)
 
     return slope, intercept, y_predict
@@ -79,7 +75,7 @@ def make_r_square(x_data, slope, intercept, y):
     ssres = 0
     sstot = 0
 
-    for k in x_data:
+    for k in y:
         average += k
     average /= len(x_data)
 
@@ -90,31 +86,31 @@ def make_r_square(x_data, slope, intercept, y):
     
     return 1 - (ssres / sstot)
 
-
-x_data = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20])
+x_data = np.array([
+    20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 
+    31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 
+    41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
+    22, 35, 42, 48
+])
 y_data_for_training = np.array([
-    3.2,  2.8,  5.1,  4.6,  6.8, 
-    8.2,  7.5,  9.9,  11.3, 10.5, 
-    12.4, 14.1, 13.5, 15.8, 17.2, 
-    16.4, 18.9, 18.1, 20.3, 19.8
+    42, 45, 43, 49, 52, 51, 56, 55, 59, 62, 60, 
+    65, 67, 66, 70, 72, 75, 74, 78, 81, 79, 
+    84, 86, 85, 89, 91, 94, 93, 97, 100, 98,
+    44, 71, 85, 96
 ])
 
-slope = rd.uniform(0.1, 10)
-intercept = rd.uniform(0.1, 20)
+slope = rd.uniform(0.1, 3)
+intercept = rd.uniform(10, 75)
 
 y_predict = predict_y(slope, x_data, intercept)
 
 make_graph(x_data, y_data_for_training, y_predict, slope, intercept, 0)
 
-show_graph()
-
 plt.figure(figsize=(16, 10))
 
-input("Move Forward With Learning?")
-step = 0.003
-for i in range(10000):
+step = 0.0001 # need to change based on the graph. general rule is higher y values means smaller step, smaller y values larger step
+for i in range(250000): # decrease range as see fit
     slope, intercept, y_predict = learn(x_data, slope, intercept, y_data_for_training, step)
-    step = step * 0.9999
 
 r_squared = make_r_square(x_data, slope, intercept, y_data_for_training)
 
