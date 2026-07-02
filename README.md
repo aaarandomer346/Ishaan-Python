@@ -40,3 +40,6 @@ a bunch of python files that helped me make a half baked sort of moving rectangl
 
 linear regression model
 self explanatory. hand baked model
+
+polynomial regression
+self explanatory. hand cooked model. takes user input of the x and y values, the starting degree and the ending degree. only variable that might need changing is the learn rate, otherwise it should be good
