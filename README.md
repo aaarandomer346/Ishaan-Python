@@ -20,9 +20,6 @@ self explanatory
 coursera
 python files from the first 2 coursera courses from some course. I forgot the name of the course
 
-Custom Text Embedder
-A big step in another project of making an RAG using ollama and python. converts a json file string into binary and back into text using a dictionary
-
 /InternetRelated/Basic message sendin & /internetrelated/file sending
 self explanatory somewhat. basically allows clients to talk to each other through a server, but so far only works locally
 
