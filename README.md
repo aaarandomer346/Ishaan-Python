@@ -34,9 +34,3 @@ python files for when i was learning pygame
 
 racing game--
 a bunch of python files that helped me make a half baked sort of moving rectangle thingy. the 2 moving rectangle.py file allows for wasd and arrow keys to move 2 different rectangles.
-
-linear regression model--
-self explanatory. hand baked model
-
-polynomial regression--
-self explanatory. hand cooked model. takes user input of the x and y values, the starting degree and the ending degree. only variable that might need changing is the learn rate, otherwise it should be good
